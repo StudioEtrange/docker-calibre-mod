@@ -35,14 +35,3 @@ FROM scratch
 
 # Add files from buildstage
 COPY --from=buildstage /root-layer/ /
-
-# TODO ?
-# do we need to do this at first run init :  https://github.com/cgspeck/docker-rdp-calibre/blob/master/firstrun.sh
-
-# # taken from https://github.com/Thraxis/docker-lazylibrarian-calibre/blob/22db28939571b6a1b3416e3774b7c93807175976/Dockerfile#L10
-# ENV CALIBRE_CONFIG_DIRECTORY="/config/calibre/"
-# ENV CALIBRE_TEMP_DIR="/config/calibre/tmp/"
-# ENV CALIBRE_CACHE_DIRECTORY="/config/cache/calibre/"
-
-# # fix empty CMD to avoid problem in docker compose
-# CMD ["/true"]
