@@ -88,9 +88,7 @@ Pre-setted buildable tags for studioetrange/calibre-mod:__TAG__
 
 Current latest tag is version __v4.23.0__
 
-## Application Setup
 
-In the Calibre-Web admin page (Basic Configuration:External Binaries) set the path to converter tool to `/usr/bin/ebook-convert`
 
 ## Building locally
 
