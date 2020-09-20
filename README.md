@@ -82,7 +82,7 @@ services:
 
 ## Docker tags
 
-Pre-setted build tags for studioetrange/calibre-mod:__TAG__
+Pre-setted buildable tags for studioetrange/calibre-mod:__TAG__
 
 	 latest, v4.23.0, v4.22.0, v4.21.0, v4.20.0, v4.19.0, v4.18.0, v4.17.0, v4.16.0, v4.15.0, v4.14.0, v4.13.0, v4.12.0, v4.11.2, v4.11.1, v4.11.0, v4.10.1, v4.10.0, v4.9.1, v4.9.0, v4.8.0, v4.7.0, v4.6.0, v4.5.0, v4.4.0, v4.3.0, v4.2.0, v4.1.0, v4.0.0, v3.48.0, v3.47.1
 
