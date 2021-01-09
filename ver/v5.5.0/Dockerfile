@@ -2,7 +2,7 @@
 FROM lsiobase/ubuntu:bionic as buildstage
 LABEL maintainer="studioetrange"
 
-ENV SERVICE_VERSION v5.9.0
+ENV SERVICE_VERSION v5.5.0
 ARG CALIBRE_RELEASE=${SERVICE_VERSION}
 
 RUN \

@@ -1,0 +1,21 @@
+#!/usr/bin/with-contenv bash
+
+# check if a Calibre library exists already, otherwise copy initial files
+if [ ! -f /books/metadata.db ]; then
+    echo "[WARNING] The mapped volume for /books doesn't contain a Calibre database file 'metadata.db'"
+    echo "> Due this an inital Calibre database file 'metadata.db' and 'metadata_db_prefs_backup.json' will be copied to $CALIBRE_PATH"
+    cp /calibre-init/* /books/
+    chown $PUID:$PGID /books/metadata.db
+    chown $PUID:$PGID /books/metadata_db_prefs_backup.json
+else
+    echo "[INFO] The mapped volume for /books contains a Calibre database file 'metadata.db' which will be used"
+fi
+
+
+if [ ! -e /usr/bin/calibre-server ]; then
+  /app/calibre/calibre_postinstall
+fi
+
+if [ ! -L /usr/lib/x86_64-linux-gnu/libGL.so.1 ]; then
+  apt update && apt install -y libgl1-mesa-glx
+fi
