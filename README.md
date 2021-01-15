@@ -8,7 +8,7 @@ calibre-mod **is not a standalone container** but an additional docker layer for
 ## About this fork
 
 * This is a fork of a calibre-web mod [linuxserver/calibre-web:calibre](https://github.com/linuxserver/docker-calibre-web/tree/calibre)
-* Create an empty calibre database, if you don't have any at startup
+* Can create an empty calibre database in a specified folder, if you don't have any at startup
 * Set some default settings for calibre binary
 * For each calibre version match a calibre-mod version
 * some ideas taken from [technosoft2000/calibre-web](https://github.com/Technosoft2000/docker-calibre-web) and from [thraxis/lazylibrarian-calibre](https://github.com/Thraxis/docker-lazylibrarian-calibre)
@@ -33,13 +33,25 @@ The architectures supported by this image are:
 | x86-64 | amd64-latest |
 
 
+## Parameters
+
+Container images are configured using parameters passed at runtime (such as those above). These parameters are separated by a colon and indicate `<external>:<internal>` respectively. For example, `-p 8080:80` would expose port `80` from inside the container to be accessible from the host's IP on port `8080` outside the container.
+
+| Parameter | Function |
+| :----: | --- |
+| `-e AUTO_CREATE_DB=/books` | Will put an empty calibre databse in this folder if not already exist. # optional |
+
+
 ## Usage
 
-Here are some example snippets to help you get started creating a Calibre-Web container utilising this mod.
 
 
+Here are some example snippets to help you get started creating a Calibre-Web container using this mod.
 
-### docker
+
+### docker sample usage
+
+
 
 ```
 docker create \
@@ -48,6 +60,7 @@ docker create \
   -e PGID=1000 \
   -e TZ=Europe/London \
   -e DOCKER_MODS=studioetrange/calibre-mod:latest \
+  -e AUTO_CREATE_DB=/books \
   -p 8083:8083 \
   -v <path to data>:/config \
   -v <path to calibre library>:/books \
@@ -56,7 +69,7 @@ docker create \
 ```
 
 
-### docker-compose
+### docker-compose sample usage
 
 Compatible with docker-compose v2 schemas.
 
@@ -72,6 +85,7 @@ services:
       - PGID=1000
       - TZ=Europe/London
       - DOCKER_MODS=studioetrange/calibre-mod:latest
+      - AUTO_CREATE_DB=/books
     volumes:
       - <path to data>:/config
       - <path to calibre library>:/books
