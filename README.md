@@ -39,7 +39,7 @@ Container images are configured using parameters passed at runtime (such as thos
 
 | Parameter | Function |
 | :----: | --- |
-| `-e AUTO_CREATE_DB=/books` | Will put an empty calibre databse in this folder if not already exist. # optional |
+| `-e AUTO_CREATE_DB=/books` | Will put an empty calibre database in this folder if not already exist. # optional |
 
 
 ## Usage

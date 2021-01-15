@@ -1,16 +1,18 @@
 #!/usr/bin/with-contenv bash
 
 # check if a Calibre library exists already, otherwise copy initial files
-if [ ! -f /books/metadata.db ]; then
-    echo "[WARNING] The mapped volume for /books doesn't contain a Calibre database file 'metadata.db'"
-    echo "> Due this an inital Calibre database file 'metadata.db' and 'metadata_db_prefs_backup.json' will be copied to $CALIBRE_PATH"
-    cp /calibre-init/* /books/
-    chown $PUID:$PGID /books/metadata.db
-    chown $PUID:$PGID /books/metadata_db_prefs_backup.json
-else
-    echo "[INFO] The mapped volume for /books contains a Calibre database file 'metadata.db' which will be used"
+if [ ! "$AUTO_CREATE_DB" = "" ] ; then
+  echo "[INFO] You ask for creation of an empty Calibre database into $AUTO_CREATE_DB"
+  if [ ! -f $AUTO_CREATE_DB/metadata.db ]; then
+      mkdir -p $AUTO_CREATE_DB
+      echo "[INFO] An inital Calibre database file 'metadata.db' and 'metadata_db_prefs_backup.json' will be copied to $AUTO_CREATE_DB"
+      cp /calibre-init/* $AUTO_CREATE_DB
+      chown $PUID:$PGID ${AUTO_CREATE_DB}/metadata.db
+      chown $PUID:$PGID ${AUTO_CREATE_DB}/metadata_db_prefs_backup.json
+  else
+      echo "[INFO] $AUTO_CREATE_DB already contains a Calibre database"
+  fi
 fi
-
 
 if [ ! -e /usr/bin/calibre-server ]; then
   /app/calibre/calibre_postinstall
