@@ -4,6 +4,7 @@ LABEL maintainer="studioetrange"
 
 ENV SERVICE_VERSION v5.4.2
 ARG CALIBRE_RELEASE=${SERVICE_VERSION}
+ENV DEBIAN_FRONTEND="noninteractive"
 
 RUN \
  echo "**** Install packages ****" && \
