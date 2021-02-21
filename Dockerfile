@@ -34,9 +34,6 @@ COPY files/ /root-layer/
 ## Single layer deployed image ##
 FROM scratch
 
-ENV CALIBRE_CONFIG_DIRECTORY="/config/calibre/"
-ENV CALIBRE_TEMP_DIR="/config/calibre/tmp/"
-ENV CALIBRE_CACHE_DIRECTORY="/config/cache/calibre/"
 
 # Add files from buildstage
 COPY --from=buildstage /root-layer/ /
