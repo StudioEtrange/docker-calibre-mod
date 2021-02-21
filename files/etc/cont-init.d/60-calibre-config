@@ -21,3 +21,19 @@ fi
 if [ ! -L /usr/lib/x86_64-linux-gnu/libGL.so.1 ]; then
   apt update && apt install -y libgl1-mesa-glx
 fi
+
+# export CALIBRE_CONFIG_DIRECTORY="/config/calibre/"
+# export CALIBRE_TEMP_DIR="/config/calibre/tmp/"
+# export CALIBRE_CACHE_DIRECTORY="/config/cache/calibre/"
+
+mkdir -p \
+/config/calibre
+
+mkdir -p \
+/config/calibre/tmp
+
+mkdir -p \
+/config/cache/calibre/
+
+chown abc:abc -R \
+	/config
