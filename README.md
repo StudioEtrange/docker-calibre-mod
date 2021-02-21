@@ -40,6 +40,9 @@ Container images are configured using parameters passed at runtime (such as thos
 | Parameter | Function |
 | :----: | --- |
 | `-e AUTO_CREATE_DB=/books` | Will put an empty calibre database in this folder if not already exist. # optional |
+| `-e CALIBRE_CONFIG_DIRECTORY=/config/calibre` | calibre folder  # optional |
+| `-e CALIBRE_TEMP_DIR=/config/calibre/tmp` | calibre folder  # optional |
+| `-e CALIBRE_CACHE_DIRECTORY=/config/cache/calibre` | calibre folder  # optional |
 
 
 ## Usage
@@ -61,6 +64,9 @@ docker create \
   -e TZ=Europe/London \
   -e DOCKER_MODS=studioetrange/calibre-mod:latest \
   -e AUTO_CREATE_DB=/books \
+  -e CALIBRE_CONFIG_DIRECTORY=/config/calibre \
+  -e CALIBRE_TEMP_DIR=/config/calibre/tmp \
+  -e CALIBRE_CACHE_DIRECTORY=/config/cache/calibre \
   -p 8083:8083 \
   -v <path to data>:/config \
   -v <path to calibre library>:/books \
@@ -86,6 +92,9 @@ services:
       - TZ=Europe/London
       - DOCKER_MODS=studioetrange/calibre-mod:latest
       - AUTO_CREATE_DB=/books
+      - CALIBRE_CONFIG_DIRECTORY=/config/calibre
+      - CALIBRE_TEMP_DIR=/config/calibre/tmp
+      - CALIBRE_CACHE_DIRECTORY=/config/cache/calibre
     volumes:
       - <path to data>:/config
       - <path to calibre library>:/books
