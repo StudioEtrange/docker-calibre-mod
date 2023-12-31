@@ -1,13 +1,10 @@
 
-
 # [studioetrange/calibre-mod](https://github.com/studioetrange/docker-calibre-mod)
-
 
 calibre-mod **is not a standalone container** but an additional docker layer for linuxserver.io's containers which adds the binaries and dependencies necessary to enable ebook conversion on x86-64 utilising Calibre.
 
-## About this fork
 
-* This is a fork of a calibre-web mod [linuxserver/calibre-web:calibre](https://github.com/linuxserver/docker-calibre-web/tree/calibre)
+* This is primary intended to be used as a docker mod with image [linuxserver/calibre-web](https://github.com/linuxserver/docker-calibre-web)
 * Can create an empty calibre database in a specified folder, if you don't have any at startup
 * Set some default settings for calibre binary
 * For each calibre version match a calibre-mod version
@@ -19,18 +16,6 @@ calibre-mod **is not a standalone container** but an additional docker layer for
 * see https://github.com/linuxserver/docker-baseimage-ubuntu/blob/bionic/root/docker-mods
 
 
-
-## Supported Architectures
-
-Our images support multiple architectures such as `x86-64`, `arm64` and `armhf`. We utilise the docker manifest for multi-platform awareness. More information is available from docker [here](https://github.com/docker/distribution/blob/master/docs/spec/manifest-v2-2.md#manifest-list) and our announcement [here](https://blog.linuxserver.io/2019/02/21/the-lsio-pipeline-project/). 
-
-Simply pulling `linuxserver/calibre-web` should retrieve the correct image for your arch, but you can also pull specific arch images via tags.
-
-The architectures supported by this image are:
-
-| Architecture | Tag |
-| :----: | --- |
-| x86-64 | amd64-latest |
 
 
 ## Parameters
@@ -134,8 +119,8 @@ docker push studioetrange/calibre-mod:latest
 
 ## Notes on Github / Docker Hub Repository
 
-* This github repository is linked to an automated build in docker hub registry.
+* This github repository is linked to a docker hub registry.
 
-	https://registry.hub.docker.com/u/studioetrange/docker-calibre-mod/
+	https://hub.docker.com/repository/docker/studioetrange/calibre-mod
 
-* _update.sh_ is only an admin script for this project which update and add new versions. This script do not auto create missing tag in docker hub webui. It is only for this project admin/owner purpose.
+* _update.sh_ is only an admin script for this project which update and add new calibre versions. This script do not auto create missing tag in docker hub webui. It is only for this project admin/owner purpose.
